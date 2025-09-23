@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Parámetros Técnicos</title>
+</head>
+<body>
+  <h2>Formulario de Configuración Musical</h2>
+  <form id="formularioConfig">
+    <label>CancionID:</label><br>
+    <input type="number" name="CancionID" required><br><br>
+
+    <label>Compás:</label><br>
+    <input type="text" name="Compas" required><br><br>
+
+    <label>Tempo:</label><br>
+    <input type="text" name="Tempo" required><br><br>
+
+    <label>Ton:</label><br>
+    <input type="text" name="Ton" required><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="respuesta"></p>
+
+  <script>
+    const URL_WEBAPP = "https://script.google.com/macros/s/AKfycbze7bVn0miM2gvelQJFa0dh7JvmIKAlftCzqp8RcNwP5UfLUoE6OhNsjt4KJbBHWCKd/exec"; // Reemplazá con tu URL
+
+    document.getElementById("formularioConfig").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const datos = {
+        formulario: "config",
+        CancionID: parseInt(this.CancionID.value),
+        Compas: this.Compas.value,
+        Tempo: this.Tempo.value,
+        Ton: this.Ton.value
+      };
+
+      fetch(URL_WEBAPP, {
+        method: "POST",
+        body: JSON.stringify(datos),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => res.text())
+      .then(texto => {
+        document.getElementById("respuesta").textContent = texto;
+      })
+      .catch(error => {
+        document.getElementById("respuesta").textContent = "❌ Error al enviar: " + error;
+      });
+    });
+  </script>
+</body>
+</html>

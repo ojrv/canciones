@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Archivos PDF</title>
+</head>
+<body>
+  <h2>Formulario de Archivo PDF</h2>
+  <form id="formularioArchivo">
+    <label>CancionID:</label><br>
+    <input type="number" name="CancionID" required><br><br>
+
+    <label>Tipo de Archivo:</label><br>
+    <input type="text" name="TipoArchivo" required><br><br>
+
+    <label>Ruta del archivo:</label><br>
+    <input type="text" name="Ruta" required><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="respuesta"></p>
+
+  <script>
+    const URL_WEBAPP = "https://script.google.com/macros/s/AKfycbze7bVn0miM2gvelQJFa0dh7JvmIKAlftCzqp8RcNwP5UfLUoE6OhNsjt4KJbBHWCKd/exec"; // Reemplazá con tu URL
+
+    document.getElementById("formularioArchivo").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const datos = {
+        formulario: "archivo",
+        CancionID: parseInt(this.CancionID.value),
+        TipoArchivo: this.TipoArchivo.value,
+        Ruta: this.Ruta.value
+      };
+
+      fetch(URL_WEBAPP, {
+        method: "POST",
+        body: JSON.stringify(datos),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => res.text())
+      .then(texto => {
+        document.getElementById("respuesta").textContent = texto;
+      })
+      .catch(error => {
+        document.getElementById("respuesta").textContent = "❌ Error al enviar: " + error;
+      });
+    });
+  </script>
+</body>
+</html>
