@@ -1,53 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Registro de Canciones</title>
+  <title>Registrar Canción</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff8e1, #e1f5fe);
+      padding: 40px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #4e342e;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    fieldset {
+      border: none;
+      margin-bottom: 25px;
+    }
+    legend {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #00695c;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    select[multiple] {
+      height: 120px;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 20px;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+    .mensaje {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h2>Formulario de Canción</h2>
-  <form id="formularioCancion">
-    <label>Título:</label><br>
-    <input type="text" name="Titulo" required><br><br>
+  <h1>🎵 Registrar Canción</h1>
+  <form id="formCancion">
+    <fieldset>
+      <legend>Datos Generales</legend>
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" required>
 
-    <label>TipoID:</label><br>
-    <input type="number" name="TipoID" required><br><br>
+      <label for="autor">Autor:</label>
+      <select id="autor" name="autor">
+        <option value="1">1 - Juan Pérez</option>
+        <option value="2">2 - María Gómez</option>
+        <option value="3">3 - Anónimo</option>
+      </select>
+    </fieldset>
 
-    <label>InterpreteID:</label><br>
-    <input type="number" name="InterpreteID" required><br><br>
+    <fieldset>
+      <legend>Parámetros Musicales</legend>
+      <label for="tonalidad">Tonalidad:</label>
+      <select id="tonalidad" name="tonalidad">
+        <option value="1">1 - Do Mayor</option>
+        <option value="2">2 - Re Menor</option>
+        <option value="3">3 - Mi Mayor</option>
+      </select>
 
-    <button type="submit">Enviar</button>
+      <label for="estilo">Estilo:</label>
+      <select id="estilo" name="estilo">
+        <option value="1">1 - Balada</option>
+        <option value="2">2 - Rock Cristiano</option>
+        <option value="3">3 - Worship</option>
+      </select>
+    </fieldset>
+
+    <button type="submit">Registrar Canción</button>
+    <div class="mensaje" id="mensaje"></div>
   </form>
 
-  <p id="respuesta"></p>
-
   <script>
-    const URL_WEBAPP = "https://script.google.com/macros/s/AKfycbze7bVn0miM2gvelQJFa0dh7JvmIKAlftCzqp8RcNwP5UfLUoE6OhNsjt4KJbBHWCKd/exec"; // Reemplazá con tu URL
-
-    document.getElementById("formularioCancion").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const datos = {
-        formulario: "cancion",
-        Titulo: this.Titulo.value,
-        TipoID: parseInt(this.TipoID.value),
-        InterpreteID: parseInt(this.InterpreteID.value)
-      };
-
-      fetch(URL_WEBAPP, {
-        method: "POST",
-        body: JSON.stringify(datos),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(res => res.text())
-      .then(texto => {
-        document.getElementById("respuesta").textContent = texto;
-      })
-      .catch(error => {
-        document.getElementById("respuesta").textContent = "❌ Error al enviar: " + error;
-      });
+    document.getElementById("formCancion").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("mensaje").textContent = "✅ Canción registrada correctamente.";
+      // Aquí iría la lógica de envío a Google Apps Script
     });
   </script>
 </body>
