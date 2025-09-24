@@ -137,7 +137,10 @@ document.getElementById("formConfig").addEventListener("submit", function(e) {
     TonalidadSopranoMezzoID: document.getElementById("soprano").value,
     TonalidadContraltoID: document.getElementById("contralto").value
   };
-
+function obtenerNombreCancion(id) {
+  return fetch(`https://script.google.com/macros/s/TU_URL_WEBAPP/exec?tipo=nombreCancion&id=${id}`)
+    .then(response => response.text());
+}
   fetch("https://script.google.com/macros/s/AKfycbze7bVn0miM2gvelQJFa0dh7JvmIKAlftCzqp8RcNwP5UfLUoE6OhNsjt4KJbBHWCKd/exec", {
     method: "POST",
     body: JSON.stringify(datos),
@@ -156,4 +159,5 @@ document.getElementById("formConfig").addEventListener("submit", function(e) {
 });
 </script>
 </body>
+
 </html>
