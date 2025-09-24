@@ -90,31 +90,31 @@
       <legend>Tonalidades por Voz</legend>
       <label for="tenor">Tenor:</label>
       <select id="tenor" name="tenor">
-        <option value="1">1 - Do Mayor (C)</option>
-        <option value="2">2 - Re Menor (Dm)</option>
-        <option value="3">3 - Mi Mayor (E)</option>
+       <option value="1">C</option>
+       <option value="2">Dm</option>
+       <option value="3">E</option>
         <!-- Agregá más según tu tabla -->
       </select>
 
       <label for="baritono">Barítono:</label>
       <select id="baritono" name="baritono">
-        <option value="1">1 - Do Mayor (C)</option>
-        <option value="2">2 - Re Menor (Dm)</option>
-        <option value="3">3 - Mi Mayor (E)</option>
+        <option value="1">C</option>
+       <option value="2">Dm</option>
+       <option value="3">E</option>
       </select>
 
       <label for="soprano">Soprano/Mezzo:</label>
       <select id="soprano" name="soprano">
-        <option value="1">1 - Do Mayor (C)</option>
-        <option value="2">2 - Re Menor (Dm)</option>
-        <option value="3">3 - Mi Mayor (E)</option>
+        <option value="1">C</option>
+       <option value="2">Dm</option>
+       <option value="3">E</option>
       </select>
 
       <label for="contralto">Contralto:</label>
       <select id="contralto" name="contralto">
-        <option value="1">1 - Do Mayor (C)</option>
-        <option value="2">2 - Re Menor (Dm)</option>
-        <option value="3">3 - Mi Mayor (E)</option>
+        <option value="1">C</option>
+       <option value="2">Dm</option>
+       <option value="3">E</option>
       </select>
     </fieldset>
 
@@ -123,11 +123,46 @@
   </form>
 
   <script>
-    document.getElementById("formConfig").addEventListener("submit", function(e) {
-      e.preventDefault();
-      document.getElementById("mensaje").textContent = "✅ Configuración guardada correctamente.";
-      // Aquí iría la lógica para insertar en CancionConfig y ConfigTonalidad
-    });
-  </script>
+document.getElementById("formConfig").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const datos = {
+    formulario: "configPlus",
+    CancionID: document.getElementById("registro").value,
+    Tempo: document.getElementById("tempo").value,
+    Compas: document.getElementById("compas").value,
+    RitmoID: document.getElementById("ritmo").value,
+    TonalidadTenorID: document.getElementById("tenor").value,
+    TonalidadBaritonoID: document.getElementById("baritono").value,
+    TonalidadSopranoMezzoID: document.getElementById("soprano").value,
+    TonalidadContraltoID: document.getElementById("contralto").value
+  };
+function obtenerNombreCancion(id) {
+  return fetch(`https://script.google.com/macros/s/TU_URL_WEBAPP/exec?tipo=nombreCancion&id=${id}`)
+    .then(response => response.text());
+
+    document.getElementById("registro").addEventListener("change", async function() {
+  const id = this.value;
+  const nombre = await obtenerNombreCancion(id);
+  document.getElementById("mensaje").textContent = nombre.startsWith("❌") ? nombre : `🎵 ${nombre}`;
+});
+}
+  fetch("https://script.google.com/macros/s/AKfycbze7bVn0miM2gvelQJFa0dh7JvmIKAlftCzqp8RcNwP5UfLUoE6OhNsjt4KJbBHWCKd/exec", {
+    method: "POST",
+    body: JSON.stringify(datos),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => response.text())
+  .then(texto => {
+    document.getElementById("mensaje").textContent = texto;
+  })
+  .catch(error => {
+    document.getElementById("mensaje").textContent = "❌ Error al conectar con el servidor.";
+    console.error("Error:", error);
+  });
+});
+</script>
 </body>
 </html>
