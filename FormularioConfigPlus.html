@@ -140,6 +140,13 @@ document.getElementById("formConfig").addEventListener("submit", function(e) {
 function obtenerNombreCancion(id) {
   return fetch(`https://script.google.com/macros/s/TU_URL_WEBAPP/exec?tipo=nombreCancion&id=${id}`)
     .then(response => response.text());
+
+  document.getElementById("registro").addEventListener("change", async function() {
+  const id = this.value;
+  const nombre = await obtenerNombreCancion(id);
+  document.getElementById("mensaje").textContent = nombre.startsWith("❌") ? nombre : `🎵 ${nombre}`;
+});
+  
 }
   fetch("https://script.google.com/macros/s/AKfycbze7bVn0miM2gvelQJFa0dh7JvmIKAlftCzqp8RcNwP5UfLUoE6OhNsjt4KJbBHWCKd/exec", {
     method: "POST",
@@ -161,3 +168,4 @@ function obtenerNombreCancion(id) {
 </body>
 
 </html>
+
