@@ -1,42 +1,82 @@
-# 🎶 Proyecto Canciones Cristianas
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎶 Registro de Canciones Cristianas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #fce4ec);
+      color: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #4a148c;
+      color: white;
+      width: 100%;
+      padding: 30px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .boton {
+      display: inline-block;
+      width: 280px;
+      margin: 20px;
+      padding: 15px 20px;
+      background-color: #7b1fa2;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .boton:hover {
+      background-color: #6a1b9a;
+      transform: scale(1.05);
+    }
+    .boton::before {
+      content: "🎵 ";
+    }
+    footer {
+      background-color: #f3e5f5;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Registro de Canciones Cristianas</h1>
+  </header>
 
-Este repositorio contiene formularios HTML diseñados para registrar canciones cristianas, archivos PDF asociados y parámetros técnicos en un sistema musical conectado a Google Apps Script.
+  <main>
+    <p>Bienvenido al sistema de registro musical. Selecciona una opción para comenzar:</p>
 
-## 📂 Formularios disponibles
+    <a class="boton" href="FormularioCancion.html">Registrar Canción</a>
+    <a class="boton" href="FormularioArchivo.html">Subir Archivo PDF</a>
+    <a class="boton" href="FormularioConfig.html">Configurar Parámetros</a>
+  </main>
 
-- [Formulario de Canción](https://ojrv.github.io/canciones/FormularioCancion.html)  
-  Registro de título, autor, tonalidad y estructura musical.
-
-- [Formulario de Archivo PDF](https://ojrv.github.io/canciones/FormularioArchivo.html)  
-  Carga de partituras o letras en formato PDF, vinculadas a cada canción.
-
-- [Formulario de Configuración](https://ojrv.github.io/canciones/FormularioConfig.html)  
-  Parámetros técnicos como tempo, compás, estilo y notas de ejecución.
-
-## 🌐 Acceso web
-
-Este sistema está publicado mediante [GitHub Pages](https://ojrv.github.io/canciones/) y puede ser utilizado desde cualquier navegador sin bloqueos CORS.
-
-## 🧠 Propósito
-
-Facilitar el registro, organización y ejecución de repertorio musical cristiano, integrando formularios accesibles con hojas de cálculo y automatización educativa.
-
-## 🛠️ Tecnologías utilizadas
-
-- HTML + CSS
-- Google Apps Script (backend)
-- GitHub Pages (hosting)
-- Visual Studio Code + GitHub Desktop (desarrollo)
-
-## 📌 Estado actual
-
-✅ Formularios funcionales  
-✅ Publicación web activa  
-🔜 Próximamente: hoja de revisión visual, documentación interna y portada interactiva
-
-## 🙌 Créditos
-
-Desarrollado por Oswaldo, con enfoque en accesibilidad, modularidad y experiencia del usuario.  
-Inspirado en las necesidades reales de músicos en vivo y entornos educativos.
-
----
+  <footer>
+    Desarrollado por Oswaldo · Publicado con GitHub Pages
+  </footer>
+</body>
+</html>
