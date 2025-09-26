@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎶 Registro de Canciones Cristianas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #fce4ec);
+      color: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #4a148c;
+      color: white;
+      width: 100%;
+      padding: 30px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .boton {
+      display: inline-block;
+      width: 280px;
+      margin: 20px;
+      padding: 15px 20px;
+      background-color: #7b1fa2;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .boton:hover {
+      background-color: #6a1b9a;
+      transform: scale(1.05);
+    }
+    .boton::before {
+      content: "🎵 ";
+    }
+    footer {
+      background-color: #f3e5f5;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Registro de Canciones Cristianas</h1>
+  </header>
+
+  <main>
+    <p>Bienvenido al sistema de registro musical. Selecciona una opción para comenzar:</p>
+
+    <a class="boton" href="FormularioCancion.html">Registrar Canción</a>
+    <a class="boton" href="FormularioArchivo.html">Subir Archivo PDF</a>
+    <a class="boton" href="FormularioConfig.html">Configurar Parámetros</a>
+  </main>
+
+  <footer>
+    Desarrollado por Oswaldo · Publicado con GitHub Pages
+  </footer>
+</body>
+</html>
