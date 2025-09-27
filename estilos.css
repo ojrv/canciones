@@ -166,6 +166,9 @@ nav a:hover {
   cursor: pointer;
 }
 
-.boton-volver:hover {
-  background-color: var(--color-boton-hover);
-}
+<div style="text-align: center; margin-top: 2em;">
+  <a href="index.html">
+    <button type="button" class="boton-volver">⬅️ Volver al Dashboard</button>
+  </a>
+</div>
+
