@@ -113,12 +113,13 @@ button:hover {
   input, select, button {
     font-size: 1em;
   }
-
 }
+
 .logo-container {
   text-align: center;
   margin-bottom: 1em;
 }
+
 .logo-container img {
   max-width: 200px;
   height: auto;
@@ -149,18 +150,50 @@ nav a {
 nav a:hover {
   color: var(--color-acento);
 }
-.logo-container img {
-  height: auto;
-  display: inline-block;
 
-
+.formulario-dashboard {
+  background-color: white;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: auto;
+  border-left: 6px solid var(--color-secundario);
+  text-align: center;
 }
 
+.boton-volver {
+  width: auto;
+  padding: 0.6em 1.2em;
+  background-color: var(--color-boton);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-<div style="text-align: center; margin-top: 2em;">
-  <a href="index.html">
-    <button type="button" class="boton-volver">⬅️ Volver al Dashboard</button>
-  </a>
-</div>
+.boton-volver:hover {
+  background-color: var(--color-boton-hover);
+}
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
 
+th, td {
+  padding: 0.8em;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
