@@ -171,6 +171,7 @@ nav a:hover {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+  display: inline-block;
 }
 
 .boton-volver:hover {
