@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Usuario</title>
-   <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilos.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
-  <!-- Solo el logo institucional -->
 
   <div class="logo-container">
     <img src="logo_cda.png" alt="Logo Iglesia Casa del Alfarero">
@@ -17,6 +15,7 @@
 
   <main>
     <h3>Formulario de Registro de Usuario</h3>
+
     <form id="formUsuario">
       <label for="nombreUsuario">Nombre de Usuario</label>
       <input type="text" id="nombreusuario" name="nombreusuario" required>
@@ -39,15 +38,14 @@
 
       <button type="submit">Registrar Usuario</button>
     </form>
+
+    <div style="text-align: center; margin-top: 2em;">
+      <a href="index.html">
+        <button type="button" class="boton-volver">⬅️ Volver al Dashboard</button>
+      </a>
+    </div>
   </main>
 
   <script src="registro.js"></script>
-  <div style="text-align: center; margin-top: 2em;">
-  <a href="index.html">
-    <button type="button">⬅️ Volver al Dashboard</button>
-  </a>
-</div>
 </body>
-
 </html>
-
